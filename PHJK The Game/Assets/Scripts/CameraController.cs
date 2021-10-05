@@ -13,10 +13,15 @@ public class CameraController : MonoBehaviour
     void Update()
     {
 
-        if (_camera.scaledPixelHeight/2 + transform.position.y > 0)
+        if (playerTransform.position.y > 0f)
         {
             transform.position = new Vector3(transform.position.x, playerTransform.position.y, -10f); 
         }
+        else if (playerTransform.position.y < 0f)
+        {
+            transform.position = new Vector3(transform.position.x, 0, -10f);
+        }
+
         
     }
 
