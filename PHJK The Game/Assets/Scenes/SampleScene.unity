@@ -20722,6 +20722,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpforce: 7
   movementSpeed: 7
+  flashlight: {fileID: 6632782749154083271, guid: 06584202b1c92224780125aaeccc2009, type: 3}
 --- !u!1 &1805752168
 GameObject:
   m_ObjectHideFlags: 0

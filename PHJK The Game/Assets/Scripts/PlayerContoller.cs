@@ -21,6 +21,7 @@ public class PlayerContoller : MonoBehaviour
     [SerializeField]private float movementSpeed = 3f;
     private Transform _transform;
     private LookingDir playerLookingDir = LookingDir.Right;
+    [SerializeField] private GameObject flashlight;
     private void Update()
     {
         float movement = Input.GetAxisRaw("Horizontal");
@@ -45,6 +46,11 @@ public class PlayerContoller : MonoBehaviour
         if (_body.velocity.x > -0.001f)
         {
             playerLookingDir = playerLookingDir = LookingDir.Left;
+        }
+
+        if (Input.GetButton("Fire2"))
+        {
+            
         }
     }
 
