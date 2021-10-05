@@ -15,19 +15,25 @@ public class PlayerContoller : MonoBehaviour
         Right
         
     }
-
-
+    
     [SerializeField]private float jumpforce = 1f;
     private Rigidbody2D _body;
     [SerializeField]private float movementSpeed = 3f;
+    private Transform _transform;
     private void Update()
     {
         float movement = Input.GetAxisRaw("Horizontal");
-        transform.position += new Vector3(movement, 0, 0) * Time.deltaTime * movementSpeed;
+        _transform.position += new Vector3(movement, 0, 0) * Time.deltaTime * movementSpeed;
 
         if (Input.GetButton("Jump") && Mathf.Abs(_body.velocity.y) <0.1f)
         {
             _body.AddForce(new Vector2(0, jumpforce), ForceMode2D.Impulse);
+        }
+
+        if (transform.position.y < -5f)
+        {
+            _transform.position = new Vector3(transform.position.x, -4f);
+            _body.velocity = Vector2.zero;
         }
     }
 
@@ -40,6 +46,7 @@ public class PlayerContoller : MonoBehaviour
 
     private void Awake()
     {
+        _transform = transform;
         _body = GetComponent<Rigidbody2D>();
     }
 }
