@@ -25,7 +25,7 @@ public class PlayerContoller : MonoBehaviour
         float movement = Input.GetAxisRaw("Horizontal");
         transform.position += new Vector3(movement, 0, 0) * Time.deltaTime * movementSpeed;
 
-        if (Input.GetButton("Jump") && Mathf.Abs(_body.velocity.y) <3f)
+        if (Input.GetButton("Jump") && Mathf.Abs(_body.velocity.y) <0.1f)
         {
             _body.AddForce(new Vector2(0, jumpforce), ForceMode2D.Impulse);
         }
