@@ -6027,6 +6027,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 1803151342}
+  maxHiegtOfCamera: 411
+  minHeightOfCamera: 0
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
