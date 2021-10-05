@@ -22,6 +22,7 @@ public class PlayerContoller : MonoBehaviour
     private Transform _transform;
     private LookingDir playerLookingDir = LookingDir.Right;
     [SerializeField] private GameObject flashlight;
+    private Vector2 spawnPosition;
     private void Update()
     {
         float movement = Input.GetAxisRaw("Horizontal");
@@ -50,8 +51,14 @@ public class PlayerContoller : MonoBehaviour
 
         if (Input.GetButton("Fire2"))
         {
-            
+            SpawnFlashlight();
         }
+    }
+
+    void SpawnFlashlight()
+    {
+        spawnPosition = _transform.position;
+        Instantiate(flashlight, spawnPosition, transform.rotation, _transform);
     }
 
     
