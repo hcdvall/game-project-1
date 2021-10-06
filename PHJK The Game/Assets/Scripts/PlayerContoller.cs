@@ -18,6 +18,7 @@ public class PlayerContoller : MonoBehaviour
     
     [SerializeField]private float jumpforce = 1f;
     private Rigidbody2D _body;
+    private bool flashlightSpawning;
     [SerializeField]private float movementSpeed = 3f;
     private Transform _transform;
     private LookingDir playerLookingDir = LookingDir.Right;
@@ -44,24 +45,29 @@ public class PlayerContoller : MonoBehaviour
             playerLookingDir = LookingDir.Right;
         }
 
-        if (_body.velocity.x > -0.001f)
+        if (_body.velocity.x > -0.01f)
         {
             playerLookingDir = playerLookingDir = LookingDir.Left;
         }
 
         if (Input.GetButton("Fire2"))
         {
-            SpawnFlashlight();
+            transform.GetChild(0).gameObject.SetActive(true);
         }
+
     }
 
     void SpawnFlashlight()
     {
         spawnPosition = _transform.position;
-        Instantiate(flashlight, spawnPosition, transform.rotation, _transform);
+        Instantiate(flashlight, spawnPosition , transform.rotation, _transform);
+        
     }
+    
 
     
+
+
 
     private void FixedUpdate()
     {
