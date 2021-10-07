@@ -56,24 +56,7 @@ public class PlayerContoller : MonoBehaviour
         }
 
     }
-
-    void SpawnFlashlight()
-    {
-        spawnPosition = _transform.position;
-        Instantiate(flashlight, spawnPosition , transform.rotation, _transform);
-        
-    }
     
-
-    
-
-
-
-    private void FixedUpdate()
-    {
-        
-    }
-
     private void Awake()
     {
         _transform = transform;
